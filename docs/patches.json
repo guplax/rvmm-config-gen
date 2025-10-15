@@ -3292,7 +3292,7 @@
     {
         "name": "Change link sharing domain",
         "description": "Replaces the domain name of shared links.",
-        "use": true,
+        "use": false,
         "dependencies": [
             "ResourcePatch",
             "BytecodePatch"
@@ -3303,7 +3303,17 @@
                 "10.86.0-release.0"
             ]
         },
-        "options": []
+        "options": [
+            {
+                "key": "domainName",
+                "title": "Domain name",
+                "description": "The domain name to use when sharing links.",
+                "required": true,
+                "type": "kotlin.String",
+                "default": "fxtwitter.com",
+                "values": null
+            }
+        ]
     },
     {
         "name": "Sanitize sharing links",
