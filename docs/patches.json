@@ -1118,7 +1118,9 @@
         "use": true,
         "dependencies": [],
         "compatiblePackages": {
-            "com.duolingo": null
+            "com.duolingo": [
+                "6.54.5"
+            ]
         },
         "options": []
     },
@@ -1411,7 +1413,9 @@
             "BytecodePatch"
         ],
         "compatiblePackages": {
-            "com.instagram.android": null
+            "com.instagram.android": [
+                "401.0.0.48.79"
+            ]
         },
         "options": [
             {
@@ -1736,8 +1740,8 @@
         ]
     },
     {
-        "name": "Hide cast button",
-        "description": "Adds an option to hide the cast button.",
+        "name": "Hide buttons",
+        "description": "Adds options to hide the cast, history, notification, and search buttons.",
         "use": true,
         "dependencies": [
             "BytecodePatch",
@@ -1760,6 +1764,24 @@
         "dependencies": [
             "BytecodePatch",
             "BytecodePatch",
+            "ResourcePatch"
+        ],
+        "compatiblePackages": {
+            "com.google.android.apps.youtube.music": [
+                "7.29.52",
+                "8.10.52"
+            ]
+        },
+        "options": []
+    },
+    {
+        "name": "Change miniplayer color",
+        "description": "Adds an option to change the miniplayer background color to match the fullscreen player.",
+        "use": true,
+        "dependencies": [
+            "BytecodePatch",
+            "BytecodePatch",
+            "ResourcePatch",
             "ResourcePatch"
         ],
         "compatiblePackages": {
@@ -1881,6 +1903,7 @@
         "description": "Adds options for debugging and exporting ReVanced logs to the clipboard.",
         "use": true,
         "dependencies": [
+            "ResourcePatch",
             "ResourcePatch",
             "BytecodePatch",
             "BytecodePatch"
@@ -2792,18 +2815,6 @@
             "com.soundcloud.android": [
                 "2025.05.27-release"
             ]
-        },
-        "options": []
-    },
-    {
-        "name": "Hide Create button",
-        "description": "Hides the \"Create\" button in the navigation bar. The latest app targets do not need this patch.",
-        "use": false,
-        "dependencies": [
-            "BytecodePatch"
-        ],
-        "compatiblePackages": {
-            "com.spotify.music": null
         },
         "options": []
     },
@@ -4539,6 +4550,7 @@
         "description": "Adds options for debugging and exporting ReVanced logs to the clipboard.",
         "use": true,
         "dependencies": [
+            "ResourcePatch",
             "ResourcePatch",
             "BytecodePatch",
             "BytecodePatch"
