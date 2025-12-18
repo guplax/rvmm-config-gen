@@ -1,5 +1,15 @@
 [
     {
+        "name": "Disable Reels scrolling",
+        "description": "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
         "name": "Export all activities",
         "description": "Makes all app activities exportable.",
         "use": false,
@@ -263,8 +273,8 @@
         "options": []
     },
     {
-        "name": "Spoof SIM country",
-        "description": "Spoofs country information returned by the SIM card provider.",
+        "name": "Spoof SIM provider",
+        "description": "Spoofs information about the SIM card provider.",
         "use": false,
         "dependencies": [
             "BytecodePatch"
@@ -531,6 +541,24 @@
                 }
             },
             {
+                "key": "networkOperator",
+                "title": "MCC+MNC network operator code",
+                "description": "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
+                "required": false,
+                "type": "kotlin.Int",
+                "default": null,
+                "values": null
+            },
+            {
+                "key": "networkOperatorName",
+                "title": "Network operator name",
+                "description": "The full name of the network operator.",
+                "required": false,
+                "type": "kotlin.String",
+                "default": null,
+                "values": null
+            },
+            {
                 "key": "simCountryIso",
                 "title": "SIM ISO country code",
                 "description": "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
@@ -788,6 +816,24 @@
                     "Zambia": "ZM",
                     "Zimbabwe": "ZW"
                 }
+            },
+            {
+                "key": "simOperator",
+                "title": "MCC+MNC SIM operator code",
+                "description": "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
+                "required": false,
+                "type": "kotlin.Int",
+                "default": null,
+                "values": null
+            },
+            {
+                "key": "simOperatorName",
+                "title": "SIM operator name",
+                "description": "The full name of the SIM operator.",
+                "required": false,
+                "type": "kotlin.String",
+                "default": null,
+                "values": null
             }
         ]
     },
@@ -1113,6 +1159,18 @@
         "options": []
     },
     {
+        "name": "Skip ads",
+        "description": "Automatically skips ads.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.disney.disneyplus": null,
+            "in.startv.hotstar": null,
+            "in.startv.hotstaronly": null
+        },
+        "options": []
+    },
+    {
         "name": "Disable ads",
         "description": null,
         "use": true,
@@ -1344,7 +1402,7 @@
         "options": []
     },
     {
-        "name": "Remove root detection",
+        "name": "Remove device integrity checks",
         "description": "Removes the check for root permissions and unlocked bootloader.",
         "use": true,
         "dependencies": [],
@@ -1390,6 +1448,16 @@
         "dependencies": [
             "BytecodePatch"
         ],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
+        "name": "Anonymous story viewing",
+        "description": "View stories without sending any information to the server. \nYour view will not appear in the story viewers list. \nNote: Since no data is sent, a story you have already viewed may appear as new on another device.",
+        "use": false,
+        "dependencies": [],
         "compatiblePackages": {
             "com.instagram.android": null
         },
@@ -1516,8 +1584,18 @@
     },
     {
         "name": "Disable signature check",
-        "description": "Disables the signature check that causes the app to crash on startup.",
-        "use": true,
+        "description": "Disables the signature check that can cause the app to crash on startup. Including this patch may cause issues with sharing or opening external Instagram links.",
+        "use": false,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
+        "name": "Disable story auto flipping",
+        "description": "Disable stories automatically flipping/skipping after some seconds.",
+        "use": false,
         "dependencies": [],
         "compatiblePackages": {
             "com.instagram.android": null
@@ -1531,6 +1609,16 @@
         "dependencies": [],
         "compatiblePackages": {
             "net.binarymode.android.irplus": null
+        },
+        "options": []
+    },
+    {
+        "name": "Hide ads",
+        "description": null,
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.letterboxd.letterboxd": null
         },
         "options": []
     },
@@ -1549,6 +1637,18 @@
     {
         "name": "Unlock Premium",
         "description": null,
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.adobe.lrmobile": [
+                "9.3.0"
+            ]
+        },
+        "options": []
+    },
+    {
+        "name": "Disable version check",
+        "description": "Disables the server-side version check that prevents the app from starting.",
         "use": true,
         "dependencies": [],
         "compatiblePackages": {
@@ -2114,6 +2214,16 @@
         "options": []
     },
     {
+        "name": "Hide ads",
+        "description": "Hides all video ads.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.peacocktv.peacockandroid": null
+        },
+        "options": []
+    },
+    {
         "name": "Spoof device ID",
         "description": "Spoofs device ID to mitigate manual bans by developers.",
         "use": true,
@@ -2285,6 +2395,16 @@
         "options": []
     },
     {
+        "name": "Remove delay",
+        "description": "Removes the delay when changing servers.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "ch.protonvpn.android": null
+        },
+        "options": []
+    },
+    {
         "name": "Hide purchase reminder",
         "description": "Hides the popup that reminds you to purchase the app.",
         "use": true,
@@ -2299,14 +2419,11 @@
         "description": null,
         "use": true,
         "dependencies": [
-            "ResourcePatch",
             "BytecodePatch",
             "BytecodePatch"
         ],
         "compatiblePackages": {
-            "com.reddit.frontpage": [
-                "2024.17.0"
-            ]
+            "com.reddit.frontpage": null
         },
         "options": []
     },
