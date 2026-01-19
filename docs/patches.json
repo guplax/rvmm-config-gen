@@ -2,7 +2,7 @@
     {
         "name": "Disable Reels scrolling",
         "description": "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
-        "use": true,
+        "use": false,
         "dependencies": [],
         "compatiblePackages": {
             "com.instagram.android": null
@@ -1016,11 +1016,31 @@
         ]
     },
     {
+        "name": "Disable Play Integrity",
+        "description": "Prevents apps from using Play Integrity by pretending it is not available.",
+        "use": false,
+        "dependencies": [
+            "BytecodePatch"
+        ],
+        "compatiblePackages": null,
+        "options": []
+    },
+    {
         "name": "Remove screen capture restriction",
         "description": "Removes the restriction of capturing audio from apps that normally wouldn't allow it.",
         "use": false,
         "dependencies": [
             "ResourcePatch",
+            "BytecodePatch"
+        ],
+        "compatiblePackages": null,
+        "options": []
+    },
+    {
+        "name": "Prevent screenshot detection",
+        "description": "Removes the registration of all screen capture callbacks. This prevents the app from detecting screenshots.",
+        "use": true,
+        "dependencies": [
             "BytecodePatch"
         ],
         "compatiblePackages": null,
@@ -1135,6 +1155,18 @@
         "options": []
     },
     {
+        "name": "Remove ads",
+        "description": "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
+        "use": true,
+        "dependencies": [
+            "Disable Pairip license check"
+        ],
+        "compatiblePackages": {
+            "com.sbs.ondemand.tv": null
+        },
+        "options": []
+    },
+    {
         "name": "Hide ads",
         "description": null,
         "use": true,
@@ -1164,9 +1196,7 @@
         "use": true,
         "dependencies": [],
         "compatiblePackages": {
-            "com.disney.disneyplus": null,
-            "in.startv.hotstar": null,
-            "in.startv.hotstaronly": null
+            "com.disney.disneyplus": null
         },
         "options": []
     },
@@ -1474,6 +1504,16 @@
         "options": []
     },
     {
+        "name": "Hide highlights tray",
+        "description": "Hides the highlights tray in profile section.",
+        "use": false,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
         "name": "Hide navigation buttons",
         "description": "Hides navigation bar buttons, such as the Reels and Create button.",
         "use": false,
@@ -1487,12 +1527,48 @@
         },
         "options": [
             {
+                "key": "hideHome",
+                "title": "Hide Home",
+                "description": "Permanently hides the Home button. App starts at next available tab.",
+                "required": false,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            },
+            {
                 "key": "hideReels",
                 "title": "Hide Reels",
                 "description": "Permanently hides the Reels button.",
                 "required": false,
                 "type": "kotlin.Boolean",
                 "default": true,
+                "values": null
+            },
+            {
+                "key": "hideDirect",
+                "title": "Hide Direct",
+                "description": "Permanently hides the Direct button.",
+                "required": false,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            },
+            {
+                "key": "hideSearch",
+                "title": "Hide Search",
+                "description": "Permanently hides the Search button.",
+                "required": false,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            },
+            {
+                "key": "hideProfile",
+                "title": "Hide Profile",
+                "description": "Permanently hides the Profile button.",
+                "required": false,
+                "type": "kotlin.Boolean",
+                "default": false,
                 "values": null
             },
             {
@@ -1543,6 +1619,16 @@
         "dependencies": [
             "BytecodePatch"
         ],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
+        "name": "Remove build expired popup",
+        "description": "Removes the popup that appears after a while, when the app version ages.",
+        "use": true,
+        "dependencies": [],
         "compatiblePackages": {
             "com.instagram.android": null
         },
@@ -1614,6 +1700,16 @@
     },
     {
         "name": "Hide ads",
+        "description": null,
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.letterboxd.letterboxd": null
+        },
+        "options": []
+    },
+    {
+        "name": "Unlock app icons",
         "description": null,
         "use": true,
         "dependencies": [],
@@ -2405,6 +2501,16 @@
         "options": []
     },
     {
+        "name": "Unlock split tunneling",
+        "description": null,
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "ch.protonvpn.android": null
+        },
+        "options": []
+    },
+    {
         "name": "Hide purchase reminder",
         "description": "Hides the popup that reminds you to purchase the app.",
         "use": true,
@@ -2868,6 +2974,14 @@
         "options": []
     },
     {
+        "name": "Disable Sentry telemetry",
+        "description": "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
+        "use": false,
+        "dependencies": [],
+        "compatiblePackages": null,
+        "options": []
+    },
+    {
         "name": "Remove file size limit",
         "description": "Allows opening files larger than 2 MB in the text editor.",
         "use": true,
@@ -3062,6 +3176,99 @@
         "dependencies": [],
         "compatiblePackages": {
             "de.stocard.stocard": null
+        },
+        "options": []
+    },
+    {
+        "name": "Add 'Give Kudos' button to 'Group Activity'",
+        "description": "Adds a button that triggers the same action as shaking your phone would.",
+        "use": true,
+        "dependencies": [
+            "ResourcePatch"
+        ],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": []
+    },
+    {
+        "name": "Add media download",
+        "description": "Extends the full-screen media viewer menu with items to copy or open their URLs or download them directly.",
+        "use": true,
+        "dependencies": [
+            "ResourcePatch",
+            "BytecodePatch"
+        ],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": []
+    },
+    {
+        "name": "Overwrite media upload parameters",
+        "description": "Overwrites the compression, resize and trim media (images and videos) parameters returned by Strava's server before upload.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": [
+            {
+                "key": "compressionQuality",
+                "title": "Compression quality (percent)",
+                "description": "This is used as the JPEG quality setting (≤ 100).",
+                "required": false,
+                "type": "kotlin.Int",
+                "default": null,
+                "values": null
+            },
+            {
+                "key": "maxDuration",
+                "title": "Max duration (seconds)",
+                "description": "The maximum length (≤ 3600) of a video before it gets trimmed.",
+                "required": false,
+                "type": "kotlin.Long",
+                "default": null,
+                "values": null
+            },
+            {
+                "key": "maxSize",
+                "title": "Max size (pixels)",
+                "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (≤ 10000).",
+                "required": false,
+                "type": "kotlin.Int",
+                "default": null,
+                "values": null
+            }
+        ]
+    },
+    {
+        "name": "Enable password login",
+        "description": "Re-enables password login after having used an OTP code.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": []
+    },
+    {
+        "name": "Block Snowplow tracking",
+        "description": "Blocks Snowplow analytics. See https://snowplow.io for more information.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": []
+    },
+    {
+        "name": "Disable Quick Edit",
+        "description": "Prevents the Quick Edit prompt from popping up.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.strava": null
         },
         "options": []
     },
@@ -4635,6 +4842,22 @@
                 "19.34.42",
                 "20.07.39",
                 "20.13.41",
+                "20.14.43"
+            ]
+        },
+        "options": []
+    },
+    {
+        "name": "Pause on audio interrupt",
+        "description": "Adds an option to pause playback instead of lowering volume when other audio plays.",
+        "use": true,
+        "dependencies": [
+            "BytecodePatch",
+            "BytecodePatch",
+            "ResourcePatch"
+        ],
+        "compatiblePackages": {
+            "com.google.android.youtube": [
                 "20.14.43"
             ]
         },
