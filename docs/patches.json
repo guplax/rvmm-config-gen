@@ -1039,7 +1039,7 @@
     {
         "name": "Prevent screenshot detection",
         "description": "Removes the registration of all screen capture callbacks. This prevents the app from detecting screenshots.",
-        "use": true,
+        "use": false,
         "dependencies": [
             "BytecodePatch"
         ],
@@ -1271,6 +1271,16 @@
         "dependencies": [],
         "compatiblePackages": {
             "at.gv.bmf.bmf2go": null
+        },
+        "options": []
+    },
+    {
+        "name": "Hide ads",
+        "description": null,
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.mobilefootie.wc2010": null
         },
         "options": []
     },
@@ -1613,6 +1623,16 @@
         "options": []
     },
     {
+        "name": "Disable analytics",
+        "description": "Disables analytics that are sent periodically.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.instagram.android": null
+        },
+        "options": []
+    },
+    {
         "name": "Open links externally",
         "description": "Changes links to always open in your external browser, instead of the in-app browser.",
         "use": false,
@@ -1695,6 +1715,26 @@
         "dependencies": [],
         "compatiblePackages": {
             "net.binarymode.android.irplus": null
+        },
+        "options": []
+    },
+    {
+        "name": "Hide ads",
+        "description": "Hides sponsored ads and Google Ads. Also happens to disable Microsoft Clarity analytics.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.ebay.kleinanzeigen": null
+        },
+        "options": []
+    },
+    {
+        "name": "Hide Pur",
+        "description": "Hides Pur (Ad Free Subscription) from Settings Menu.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.ebay.kleinanzeigen": null
         },
         "options": []
     },
@@ -1821,6 +1861,16 @@
         ],
         "compatiblePackages": {
             "com.facebook.orca": null
+        },
+        "options": []
+    },
+    {
+        "name": "Hide OneDrive migration",
+        "description": "Hides the OneDrive migration prompt when opening Microsoft Office Lens.",
+        "use": true,
+        "dependencies": [],
+        "compatiblePackages": {
+            "com.microsoft.office.officelens": null
         },
         "options": []
     },
@@ -1971,6 +2021,23 @@
         "options": []
     },
     {
+        "name": "Hide layout components",
+        "description": "Adds options to hide general layout components.",
+        "use": true,
+        "dependencies": [
+            "BytecodePatch",
+            "BytecodePatch",
+            "ResourcePatch"
+        ],
+        "compatiblePackages": {
+            "com.google.android.apps.youtube.music": [
+                "7.29.52",
+                "8.10.52"
+            ]
+        },
+        "options": []
+    },
+    {
         "name": "Change miniplayer color",
         "description": "Adds an option to change the miniplayer background color to match the fullscreen player.",
         "use": true,
@@ -2063,13 +2130,10 @@
         ]
     },
     {
-        "name": "Bypass certificate checks",
-        "description": "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
+        "name": "Unlock Android Auto Media Browser",
+        "description": "Unlocks Android Auto Media Browser which enables the search function including speech to text.",
         "use": true,
-        "dependencies": [
-            "BytecodePatch",
-            "BytecodePatch"
-        ],
+        "dependencies": [],
         "compatiblePackages": {
             "com.google.android.apps.youtube.music": [
                 "7.29.52",
@@ -2099,10 +2163,10 @@
         "description": "Adds options for debugging and exporting ReVanced logs to the clipboard.",
         "use": true,
         "dependencies": [
-            "ResourcePatch",
-            "ResourcePatch",
             "BytecodePatch",
-            "BytecodePatch"
+            "BytecodePatch",
+            "ResourcePatch",
+            "ResourcePatch"
         ],
         "compatiblePackages": {
             "com.google.android.apps.youtube.music": [
@@ -2242,6 +2306,18 @@
         "dependencies": [],
         "compatiblePackages": {
             "eu.faircode.netguard": null
+        },
+        "options": []
+    },
+    {
+        "name": "Show K1 token(s)",
+        "description": "Shows the K1 authentication token(s) in a dialog and logs it to logcat for pairing with GadgetBridge without requiring root access. After installing this patch, pair your watch  with the Nothing X app and use the token from the dialog or logcat.",
+        "use": true,
+        "dependencies": [
+            "BytecodePatch"
+        ],
+        "compatiblePackages": {
+            "com.nothing.smartcenter": []
         },
         "options": []
     },
@@ -3180,6 +3256,82 @@
         "options": []
     },
     {
+        "name": "Hide distractions",
+        "description": "Hides elements that are not essential.",
+        "use": true,
+        "dependencies": [
+            "BytecodePatch"
+        ],
+        "compatiblePackages": {
+            "com.strava": null
+        },
+        "options": [
+            {
+                "key": "upselling",
+                "title": "Upselling",
+                "description": "Elements that suggest you subscribe.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": true,
+                "values": null
+            },
+            {
+                "key": "promo",
+                "title": "Promotions",
+                "description": "Elements that promote features, challenges, clubs, etc.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": true,
+                "values": null
+            },
+            {
+                "key": "followSuggestions",
+                "title": "Who to Follow",
+                "description": "Popular athletes, followers, people near you etc.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": true,
+                "values": null
+            },
+            {
+                "key": "challengeSuggestions",
+                "title": "Suggested Challenges",
+                "description": "Random challenges Strava wants you to join.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": true,
+                "values": null
+            },
+            {
+                "key": "joinChallenge",
+                "title": "Join Challenge",
+                "description": "Challenges your follows have joined.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            },
+            {
+                "key": "joinClub",
+                "title": "Joined a club",
+                "description": "Clubs your follows have joined.",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            },
+            {
+                "key": "activityLookback",
+                "title": "Activity lookback",
+                "description": "Your activity from X years ago",
+                "required": true,
+                "type": "kotlin.Boolean",
+                "default": false,
+                "values": null
+            }
+        ]
+    },
+    {
         "name": "Add 'Give Kudos' button to 'Group Activity'",
         "description": "Adds a button that triggers the same action as shaking your phone would.",
         "use": true,
@@ -3286,7 +3438,9 @@
         "name": "Disable subscription suggestions",
         "description": null,
         "use": true,
-        "dependencies": [],
+        "dependencies": [
+            "Hide distractions"
+        ],
         "compatiblePackages": {
             "com.strava": null
         },
@@ -4291,8 +4445,8 @@
             "BytecodePatch",
             "BytecodePatch",
             "ResourcePatch",
-            "ResourcePatch",
-            "BytecodePatch"
+            "BytecodePatch",
+            "ResourcePatch"
         ],
         "compatiblePackages": {
             "com.google.android.youtube": [
@@ -4890,10 +5044,10 @@
         "description": "Adds options for debugging and exporting ReVanced logs to the clipboard.",
         "use": true,
         "dependencies": [
-            "ResourcePatch",
-            "ResourcePatch",
             "BytecodePatch",
-            "BytecodePatch"
+            "BytecodePatch",
+            "ResourcePatch",
+            "ResourcePatch"
         ],
         "compatiblePackages": {
             "com.google.android.youtube": [
