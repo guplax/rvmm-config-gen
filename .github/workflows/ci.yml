@@ -38,17 +38,17 @@ jobs:
           dl_url=$(echo -E "$r" | jq -r '.assets | .[0] | .browser_download_url')
           #wget "$dl_url" -O "$name"
 
-          #java -jar patches-json-gen.jar "$name" "docs/patches.json"
+          #java -jar patches-json-gen.jar "$name" "static/patches.json"
 
           tag_name=$(echo -E "$r" | jq -r '.tag_name')
           patches_dl_url="https://raw.githubusercontent.com/MorpheApp/morphe-patches/refs/tags/$tag_name/patches-list.json"
           wget "$patches_dl_url" -O "${version_name}.json"
 
-          cat "${version_name}.json" | jq '.patches | map(select(.compatiblePackages."com.google.android.youtube" or .compatiblePackages == null))' >docs/patches.json
+          cat "${version_name}.json" | jq '.patches | map(select(.compatiblePackages."com.google.android.youtube" or .compatiblePackages == null))' >static/patches.json
 
       - name: patches
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: master
-          file_pattern: docs/patches.json docs/version
+          branch: workers
+          file_pattern: static/patches.json docs/version
           commit_message: Update patches.json

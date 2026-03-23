@@ -1,0 +1,13 @@
+"$schema" = "node_modules/wrangler/config-schema.json"
+name = "morphgen"
+main = ".svelte-kit/cloudflare/_worker.js"
+compatibility_date = "2026-03-17"
+compatibility_flags = [ "nodejs_compat", "nodejs_als" ]
+workers_dev = true
+
+[assets]
+binding = "ASSETS"
+directory = ".svelte-kit/cloudflare"
+
+[observability]
+enabled = true

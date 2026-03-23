@@ -69,7 +69,7 @@
 
   let patchesGenTextVisible = false;
 
-  let defaultPatchesJson = fetch("patches.json")
+  let defaultPatchesJson = fetch("/patches.json")
     .then((r) => r.json())
     .then((r) => r.patches || r);
 </script>
