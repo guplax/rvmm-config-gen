@@ -10,8 +10,8 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^7.2.8",
-    "@sveltejs/kit": "^2.50.2",
+    "@sveltejs/adapter-cloudflare": "^2.3.4",
+    "@sveltejs/kit": "^1.30.4",
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
