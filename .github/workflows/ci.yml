@@ -1,8 +1,8 @@
 name: CI
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 16 * * *"
+  #schedule:
+  #  - cron: "0 16 * * *"
 
 jobs:
   check:
@@ -27,18 +27,24 @@ jobs:
 
       - name: Generate JSON
         run: |
-          r=$(curl -s https://api.github.com/repos/revanced/revanced-patches/releases/latest) || exit 1
+          r=$(curl -Ls https://api.github.com/repos/MorpheApp/morphe-patches/releases/latest) || exit 1
 
-          name=$(echo "$r" | jq -r '.assets | .[0] | .name')
+          name=$(echo -E "$r" | jq -r '.assets | .[0] | .name')
           version_name="${name%.*}"
 
           if [ "$version_name" = "$(cat docs/version)" ]; then exit 0; fi
           echo -n "$version_name" >docs/version
 
-          dl_url=$(echo "$r" | jq -r '.assets | .[0] | .browser_download_url')
-          wget "$dl_url" -O "$name"
+          dl_url=$(echo -E "$r" | jq -r '.assets | .[0] | .browser_download_url')
+          #wget "$dl_url" -O "$name"
 
-          java -jar patches-json-gen.jar "$name" "docs/patches.json"
+          #java -jar patches-json-gen.jar "$name" "docs/patches.json"
+
+          tag_name=$(echo -E "$r" | jq -r '.tag_name')
+          patches_dl_url="https://raw.githubusercontent.com/MorpheApp/morphe-patches/refs/tags/$tag_name/patches-list.json"
+          wget "$patches_dl_url" -O "${version_name}.json"
+
+          cat "${version_name}.json" | jq '.patches | map(select(.compatiblePackages."com.google.android.youtube" or .compatiblePackages == null))' >docs/patches.json
 
       - name: patches
         uses: stefanzweifel/git-auto-commit-action@v5
