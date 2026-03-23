@@ -1,6 +1,6 @@
 <script>
-  import CopyBut from "./lib/CopyBut.svelte";
-  import RVApp from "./lib/RVApp.svelte";
+  import CopyBut from "../lib/CopyBut.svelte";
+  import RVApp from "../lib/RVApp.svelte";
 
   function getPkgs(patchesJson) {
     const supportedAppsSet = new Set();
